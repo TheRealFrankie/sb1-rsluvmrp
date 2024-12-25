@@ -1,0 +1,13 @@
+{
+    "name": "pixel-kraftwerk/contact-form",
+    "description": "Contact form email handler for Pixel Kraftwerk",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "PixelKraftwerk\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    }
+}

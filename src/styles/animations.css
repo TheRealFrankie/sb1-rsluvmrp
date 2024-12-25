@@ -1,0 +1,29 @@
+@keyframes formHighlight {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.2);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+  }
+}
+
+.highlight-form {
+  animation: formHighlight 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Skip animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .highlight-form {
+    animation: none;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

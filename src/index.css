@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-gray-100;
+  }
+
+  /* Hide default cursor except for chatbot */
+  * {
+    cursor: none !important;
+  }
+
+  /* Allow default cursor for chatbot container and its children */
+  #VG_OVERLAY_CONTAINER,
+  #VG_OVERLAY_CONTAINER * {
+    cursor: auto !important;
+  }
+}
+
+@keyframes flow {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) var(--tw-transform);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) var(--tw-transform);
+  }
+}
+
+@keyframes cursor-glow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes formHighlight {
+  0% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(168, 85, 247, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+  }
+}
+
+@layer utilities {
+  .animate-cursor-glow {
+    animation: cursor-glow 2s ease-in-out infinite;
+  }
+
+  .highlight-form {
+    animation: formHighlight 1.5s ease-out;
+  }
+}
+
+/* Custom z-index layers */
+.z-cursor {
+  z-index: 9998;
+}
+
+.z-chatbot {
+  z-index: 9999;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile layout utilities */
+@layer components {
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-container {
+    @apply max-w-7xl mx-auto container-padding;
+  }
+
+  .content-container-sm {
+    @apply max-w-3xl mx-auto container-padding;
+  }
+
+  .content-container-md {
+    @apply max-w-4xl mx-auto container-padding;
+  }
+
+  .content-container-lg {
+    @apply max-w-5xl mx-auto container-padding;
+  }
+}
